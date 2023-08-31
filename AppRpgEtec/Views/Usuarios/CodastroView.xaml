@@ -4,6 +4,7 @@
              x:Class="AppRpgEtec.Views.Usuarios.CadastroView"
              Title="CadastroView">
     <VerticalStackLayout>
+        <Label Text="Do Alex Vitor Gomes" />
         <Entry Placeholder="Digite seu nome de usuário" Text ="{Binding Login}"
                 Margin="0,10,0,0" VerticalOptions="FillAndExpand"
                 HorizontalOptions="FillAndExpand">
