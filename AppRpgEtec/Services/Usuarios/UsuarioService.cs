@@ -12,7 +12,7 @@ namespace AppRpgEtec.Services.Usuarios
     public class UsuarioService : Request
     {
         private readonly Request _request;
-        private const string apiUrlBase = "http://alitor004.somme.com.RpgApi/Usuarios";
+        private const string apiUrlBase = "https://bsite.net/luizfernando987/Usuarios";
 
         public UsuarioService()
         {
@@ -22,7 +22,7 @@ namespace AppRpgEtec.Services.Usuarios
         public async Task<Usuario> PostRegistrarUsuarioAsync(Usuario u)
         {
             //Registrar: Rota para o método na API que registrar o usuário
-            string urlComplementar = "/Rgistrar";
+            string urlComplementar = "/Registrar";
             u.Id = await _request.PostReturnIntAsync(apiUrlBase + urlComplementar, u);
             return u;
         }

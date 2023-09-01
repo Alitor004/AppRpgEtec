@@ -29,7 +29,7 @@ namespace AppRpgEtec.ViewModels.Usuarios
         {
             RegistrarCommand = new Command(async () => await RegistrarUsuario());
             AutenticarCommand = new Command(async ()=> await AutenticarUsuario());
-            DirecionarCadastroCommand = new Command(async ()=> DirecionarParaCadastro());
+            DirecionarCadastroCommand = new Command(async ()=> await DirecionarParaCadastro());
         }
 
         
@@ -65,7 +65,7 @@ namespace AppRpgEtec.ViewModels.Usuarios
             try
             {
                 Usuario u = new Usuario();
-                u.Username = login;
+                u.Username = Login;
                 u.PasswordString = Senha;
 
                 Usuario uRegistrado = await uService.PostRegistrarUsuarioAsync(u);
