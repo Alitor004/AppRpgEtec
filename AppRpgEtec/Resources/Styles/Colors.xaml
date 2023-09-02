@@ -41,6 +41,11 @@
     <Color x:Key="Blue200Accent">#72ACF1</Color>
     <Color x:Key="Blue300Accent">#A7CBF6</Color>-->
 
+    <Color x:Key="MainColor">#f8cc45</Color>
+    <Color x:Key="DarkColor">Black</Color>
+    <Color x:Key="DarkTextColor">Black</Color>
+
+
     <Color x:Key="Primary">White</Color>
     <Color x:Key="Secondary">#A85563</Color>
     <Color x:Key="Tertiary">#650000</Color>

@@ -3,39 +3,72 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppRpgEtec.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FlameOptions" TargetType="Frame">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="HasShadow" Value="True"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+    <ContentPage.Content>
+        <VerticalStackLayout Padding="25" Spacing="30">
+            <Frame BackgroundColor="{StaticResource MainColor}"
+                    HeightRequest="{OnPlatform Android=190, iOS=220}"
+                    Padding="0" HasShadow="false" CornerRadius="10">        
+                <Grid>
+                    <Image Source="dotnet_bot.svg"/>
+                    <FlexLayout Direction="Row" Margin="20" AlignItems="Stretch">
+                        <Label Text="RPG App" FlexLayout.Grow="1" FontAttributes="Bold"
+                                FontSize="20" VerticalTextAlignment="Center"/>
+                        <FlexLayout FlexLayout.Grow="2" Direction="Column"
+                                    AlignItems="End" JustifyContent="Center">
+                            <Label Text="Usuários" FontSize="20"/>
+                            <Button Style="{StaticResource WhiteButtonSmall}" Text="VER"/>
+                        </FlexLayout>
+                    </FlexLayout>
+                </Grid>
+            </Frame>
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
+            <Label Text="Este App oferece recursos para" FontAttributes="Bold" FontSize="Medium"/>
+            <ScrollView Orientation="Horizontal">
+                <HorizontalStackLayout>
+                    <Frame Style="{StaticResource FrameOptions}" Padding="0"
+                            HeightRequest="{OnPlatform Android=150, iOS=140}"
+                            WidthRequest="{OnPlatform Android=120, iOS=140}">
+                        <VerticalStackLayout Spacing="0" VerticalOptions="Center">
+                            <Image Source="menupersonagens.svg"/>
+                            <Label Text="Personagens" FontSize="Small"
+                                    HorizontalTextAlignment="Center" Margin="10,0"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                    <Frame Style="{StaticResource FrameOptions}" Padding="0"
+                            HeightRequest="{OnPlatform Android=150, iOS=140}"
+                            WidthRequest="{OnPlatform Android=120, iOS=140}">
+                        <VerticalStackLayout Spacing="30" VerticalOptions="Center">
+                            <Image Source="menuarmas.png"/>
+                            <Label Text="Armas" FontSize="Small" HorizontalTextAlignment="Center"
+                                    Margin="10,0"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                    <Frame Style="{StaticResource FrameOptions}" Padding="0"
+                            HeightRequest="{OnPlatform Android=150, iOS=140}"
+                            WidthRequest="{OnPlatform Android=120, iOS=140}">
+                        <VerticalStackLayout Spacing="0" VerticalOptions="Center">
+                            <Image Source="menudisputas.png"/>
+                            <Label Text="Disputas" FontSize="Small"
+                                    HorizontalTextAlignment="Center" Margin="10,0"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </HorizontalStackLayout>
+            </ScrollView>
+            <HorizontalStackLayout Margin="10,100">
+                <Image Source="exit.svg" WidthRequest="50"/>
+                <Label Text="Sair" Margin="10,0,0,0" VerticalTextAlignment="Center" />
+            </HorizontalStackLayout>
+            
         </VerticalStackLayout>
-    </ScrollView>
+    </ContentPage.Content>
 
 </ContentPage>
