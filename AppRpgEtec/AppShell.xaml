@@ -37,7 +37,10 @@
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage"
         />
-        <ShellContent Title="Usuários" Icon="menuusuarios.svg" ContentTemplate="{DataTemplate viewsUsuarios:ListagemView}"></ShellContent>
+        <Tab Title="Usuários" Route="usuarios" Icon="menuusuario.svg">
+            <ShellContent Title="Usuários" ContentTemplate="{DataTemplate viewsUsuarios:ListagemView}"></ShellContent>
+            <ShellContent Title="Tempo Real" ContentTemplate="{DataTemplate viewsUsuarios:LocalizacaoView}"></ShellContent>
+        </Tab>
         <ShellContent Title="Personagens" Icon="menuPersonagens.svg" ContentTemplate="{DataTemplate viewsPersonagens:ListagemView}"></ShellContent>
         <ShellContent Title="Disputas" Icon="menuDisputas.svg" ContentTemplate="{DataTemplate viewsDisputas:ListagemView}"></ShellContent>
         <Tab Title="Info" Route="Info" Icon="info.svg">
