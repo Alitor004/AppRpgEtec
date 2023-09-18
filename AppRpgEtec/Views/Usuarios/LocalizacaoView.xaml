@@ -4,6 +4,15 @@
              x:Class="AppRpgEtec.Views.Usuarios.LocalizacaoView"
              xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
              Title="LocalizacaoView">
-    <maps:Map x:Name="mapa" ItemsSource="{Binding MeuMapa}">
+    <maps:Map x:Name="mapa" 
+              IsShowingUser="True" IsZoomEnabled="True" IsTrafficEnabled="True"
+              ItemsSource="{Binding MeuMapa}">
+        <maps:Map.ItemTemplate>
+            <DataTemplate>
+                <maps:Pin Location="{Binding Localizacao}"
+                          Address="{Binding Address}"
+                          Label="{Binding Label}"/>
+            </DataTemplate>
+        </maps:Map.ItemTemplate>
     </maps:Map>
 </ContentPage>
