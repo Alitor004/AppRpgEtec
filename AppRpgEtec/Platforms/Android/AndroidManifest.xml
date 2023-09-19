@@ -3,12 +3,13 @@
 	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:supportsRtl="true">
 
 		<meta-data android:name="com.google.android.geo.API_KEY"
-				   android:value="AIzaSyAjGYtRopbE8dqj50sTHcE6hQSUUs7HA4k">
+				   android:value="AIzaSyBgUTqcF8XalfFeR4NWlOPyZqQw62UCoFY">
 		</meta-data>
 		
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
+	
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />

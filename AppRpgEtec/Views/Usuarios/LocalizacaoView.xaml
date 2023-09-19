@@ -9,7 +9,7 @@
               ItemsSource="{Binding MeuMapa}">
         <maps:Map.ItemTemplate>
             <DataTemplate>
-                <maps:Pin Location="{Binding Localizacao}"
+                <maps:Pin Location="{Binding Location}"
                           Address="{Binding Address}"
                           Label="{Binding Label}"/>
             </DataTemplate>
