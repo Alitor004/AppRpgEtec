@@ -40,8 +40,7 @@ namespace AppRpgEtec.ViewModels.Usuarios
                 };
 
                 Map map = new Map();
-                MapSpan mapSpan = MapSpan
-                    .FromCenterAndRadius(location, Distance.FromKilometers(5));
+                MapSpan mapSpan = MapSpan.FromCenterAndRadius(location, Distance.FromKilometers(5));
                 map.Pins.Add(pinEtec);
                 map.MoveToRegion(mapSpan);
 
