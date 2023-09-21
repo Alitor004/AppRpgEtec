@@ -1,16 +1,23 @@
-﻿using Microsoft.Maui.Controls.Maps;
+﻿using AppRpgEtec.Models.Usuarios;
+using AppRpgEtec.Services.Usuarios;
+using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+
 using Map = Microsoft.Maui.Controls.Maps.Map;
 
 namespace AppRpgEtec.ViewModels.Usuarios
 {
     internal class LocalizacaoViewModel : BaseViewModel
     {
+        private UsuarioService uService;
+
+        public LocalizacaoViewModel()
+        {
+            string token = Preferences.Get("UsuarioToken", string.Empty);
+            uService = new UsuarioService(token);
+        }
+
         private Map meuMapa;
 
         public Map MeuMapa
@@ -51,5 +58,40 @@ namespace AppRpgEtec.ViewModels.Usuarios
                 await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
             }
         }
+
+        public async void ExibirUsuariosNoMapa()
+        {
+            try
+            {
+                ObservableCollection<Usuario> ocUsuario = await uService.GetUsuariosAsync();
+                List<Usuario> listaUsuario = new List<Usuario>(ocUsuario);
+                Map map = new Map();
+
+                foreach (Usuario u in listaUsuario)
+                {
+                    if (u.Latitude != null && u.Longitude != null)
+                    {
+                        double latitude = (double)u.Latitude;
+                        double longitude = (double)u.Longitude;
+                        Location location = new Location(latitude, longitude);
+
+                        Pin pinAtual = new Pin()
+                        {
+                            Type = PinType.Place,
+                            Label = u.Username,
+                            Address = $"E-mail: {u.Email}",
+                            Location = location
+                        };
+                        map.Pins.Add(pinAtual);
+                    }
+                }
+                MeuMapa = map;
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "OK");
+            }
+        }
+
     }
 }

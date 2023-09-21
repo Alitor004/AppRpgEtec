@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using AppRpgEtec.Services;
 using AppRpgEtec.Models.Usuarios;
+using System.Collections.ObjectModel;
 
 namespace AppRpgEtec.Services.Usuarios
 {
@@ -17,6 +18,14 @@ namespace AppRpgEtec.Services.Usuarios
         public UsuarioService()
         {
             _request = new Request();
+        }
+
+        private string _token;
+
+        public UsuarioService(string token) 
+        {
+            _request = new Request();
+            _token = token;
         }
 
         public async Task<Usuario> PostRegistrarUsuarioAsync(Usuario u)
@@ -34,6 +43,21 @@ namespace AppRpgEtec.Services.Usuarios
             u = await _request.PostAsync(apiUrlBase + urlComlementar, u, string.Empty);
 
             return u;
+        }
+
+        public async Task<int> PutAtualizarLocalizacaoAsync(Usuario u)
+        {
+            string urlComplementar = "/AtualizarLocalizacao";
+            var result = await _request.PutAsync(apiUrlBase + urlComplementar, u, _token);
+            return result;
+        }
+
+        public async Task<ObservableCollection<Usuario>> GetUsuariosAsync()
+        {
+            string urlComplementar = string.Format("{0}", "/GetAll");
+            ObservableCollection<Usuario> listaUsuario = await 
+                _request.GetAsync<ObservableCollection<Usuario>>(apiUrlBase + urlComplementar, _token);
+            return listaUsuario;
         }
     }
 }

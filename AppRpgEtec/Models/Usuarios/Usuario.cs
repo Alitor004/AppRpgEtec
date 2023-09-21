@@ -15,6 +15,7 @@ namespace AppRpgEtec.Models.Usuarios
         public string Token { get; set; }
         public byte[] Foto { get; set; }
         public string Email { get; set; }
+
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
     }
