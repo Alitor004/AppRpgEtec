@@ -20,7 +20,7 @@
                 <FlexLayout Grid.Row="0" Direction="Row" AlignItems="Center">
                     <Frame Padding="0" CornerRadius="40"
                             HeightRequest="80" WidthRequest="80" >
-                        <Image Source="has_logo_transparente.svg"/>
+                        <Image Source="etec_cps.svg"/>
                     </Frame>
                     <VerticalStackLayout Padding="10,0,0,0" Spacing="0">
                         <Label Text="App RPG Etec" FontAttributes="Bold" FontSize="Medium" />
@@ -37,10 +37,11 @@
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage"
         />
-        <Tab Title="Usuários" Route="usuarios" Icon="menuusuario.svg">
+        <!--<Tab Title="Usuários" Route="usuarios" Icon="menuusuarios.svg">
             <ShellContent Title="Usuários" ContentTemplate="{DataTemplate viewsUsuarios:ListagemView}"></ShellContent>
             <ShellContent Title="Tempo Real" ContentTemplate="{DataTemplate viewsUsuarios:LocalizacaoView}"></ShellContent>
-        </Tab>
+        </Tab>-->
+        <ShellContent Title="Tempo Real" Route="usuarios" Icon="menuusuarios.svg" ContentTemplate="{DataTemplate viewsUsuarios:LocalizacaoView}"></ShellContent>
         <ShellContent Title="Personagens" Icon="menuPersonagens.svg" ContentTemplate="{DataTemplate viewsPersonagens:ListagemView}"></ShellContent>
         <ShellContent Title="Disputas" Icon="menuDisputas.svg" ContentTemplate="{DataTemplate viewsDisputas:ListagemView}"></ShellContent>
         <Tab Title="Info" Route="Info" Icon="info.svg">
