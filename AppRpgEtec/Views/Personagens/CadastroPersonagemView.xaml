@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppRpgEtec.Views.Personagens.CadastroPersonagemView"
+             Shell.PresentationMode="Animated"
              Title="CadastroPersonagemView">
+
+    <Button Text="Cancel" Command="{Binding CancelarCommand}"></Button>
+    
     <ScrollView>
         <VerticalStackLayout Spacing="3" Padding="15">
             <Label Text="Nome" FontSize="Medium" />
