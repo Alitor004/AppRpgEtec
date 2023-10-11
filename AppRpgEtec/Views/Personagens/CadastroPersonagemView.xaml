@@ -3,10 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppRpgEtec.Views.Personagens.CadastroPersonagemView"
              Title="CadastroPersonagemView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Spacing="3" Padding="15">
+            <Label Text="Nome" FontSize="Medium" />
+            <Entry Text="{Binding Nome}" FontSize="Medium" />
+            <Label Text="Classe" FontSize="Medium" />
+            <Picker Title="---Selecione---" ItemsSource="{Binding ListaTiposClasse}"
+                    ItemDisplayBinding="{Binding Descricao}" SelectedItem="{Binding TipoClasseSelecionado}" />
+            <Label Text="Pontos de Vida" FontSize="Medium" />
+            <Entry Text="{Binding PontosVida}" FontSize="Medium" Keyboard="Numeric" />
+            <Label Text="Força" FontSize="Medium" />
+            <Entry Text="{Binding Forca}" FontSize="Medium" Keyboard="Numeric" />
+            <Label Text="Defesa" FontSize="Medium" />
+            <Entry Text="{Binding Defesa}" FontSize="Medium" Keyboard="Numeric" />
+            <Label Text="Inteligência" FontSize="Medium" />
+            <Entry Text="{Binding Inteligencia}" FontSize="Medium" Keyboard="Numeric" />
+            <Label Text="Disputas" FontSize="Medium" />
+            <Entry Text="{Binding Disputas}" FontSize="Medium" Keyboard="Numeric" />
+            <Label Text="Vitórias" FontSize="Medium" />
+            <Entry Text="{Binding Vitorias}" FontSize="Medium" Keyboard="Numeric" />
+            <Label Text="Derrotas" FontSize="Medium" />
+            <Entry Text="{Binding Derrotas}" FontSize="Medium" Keyboard="Numeric" />
+            <HorizontalStackLayout Spacing="20">
+                <Button Text="Salvar" Command="{Binding SalvarCommand}"></Button>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
