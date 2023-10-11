@@ -6,6 +6,8 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
+
+
 		string login = Preferences.Get("UsuarioUsername", string.Empty);
 		lblLogin.Text = $"login: {login}";
 	}
