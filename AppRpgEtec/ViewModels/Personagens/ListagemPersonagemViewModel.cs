@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 
 namespace AppRpgEtec.ViewModels.Personagens
 {
@@ -21,10 +21,14 @@ namespace AppRpgEtec.ViewModels.Personagens
             pService = new PersonagemService(token);
             Personagens = new ObservableCollection<Personagem>();
 
-            _ = ObterPersonagem();
+            _ = ObterPersonagens();
+
+            NovoPersonagem = new Command(async () => { await ExibirCadastroPersonagem(); });
         }
 
-        public async Task ObterPersonagem()
+        public ICommand NovoPersonagem { get; }
+
+        public async Task ObterPersonagens()
         {
             try //Junto com o Catch envitará que erros fechem o aplicativo
             {
@@ -36,6 +40,19 @@ namespace AppRpgEtec.ViewModels.Personagens
                 //Captará o erro para exibir em tela
                 await Application.Current.MainPage
                     .DisplayAlert("Ops", ex.Message + "Detalhes: " + ex.InnerException, "Ok");
+            }
+        }
+
+        public async Task ExibirCadastroPersonagem()
+        {
+            try
+            {
+                await Shell.Current.GoToAsync("cadPersonagemView");
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage
+                   .DisplayAlert("Ops", ex.Message + "Detalhes: " + ex.InnerException, "Ok");
             }
         }
 

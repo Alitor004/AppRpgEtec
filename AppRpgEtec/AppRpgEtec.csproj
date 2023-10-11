@@ -77,6 +77,9 @@
 	  <MauiXaml Update="Views\Disputas\ListagemView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Personagens\CadastroPersonagemView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Personagens\ListagemView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
