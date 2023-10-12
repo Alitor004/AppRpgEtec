@@ -10,10 +10,18 @@
     
     <ScrollView>
         <VerticalStackLayout Padding="10, 0, 0, 0" VerticalOptions="FillAndExpand">
-            <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Personagens}" >
+            <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Personagens}"
+                      SelectedItem="{Binding PersonagemSelecionado}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Remover" 
+                                          Command ="{Binding Path=BindingContext.RemoverPersonagemCommand, Source={x:Reference listView}}"
+                                          CommandParameter="{Binding .}"></MenuItem>
+                            </ViewCell.ContextActions>
+                            
                             <StackLayout Padding="10">
                                 <Label Text="{Binding Nome}" FontSize="18" FontAttributes="Bold"/>
                                 <Label Text="{Binding PontosVida}" FontSize="14"/>
