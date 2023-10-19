@@ -45,6 +45,8 @@
         <ShellContent Title="Personagens" Icon="menuPersonagens.svg" ContentTemplate="{DataTemplate viewsPersonagens:ListagemView}"></ShellContent>
         <ShellContent Title="Disputas" Icon="menuDisputas.svg" ContentTemplate="{DataTemplate viewsDisputas:ListagemView}"></ShellContent>
         <Tab Title="Info" Route="Info" Icon="info.svg">
+            <ShellContent Title="Usuário" Route="usuario" ContentTemplate="{DataTemplate viewsUsuarios:ImagemUsuarioView}"/>
+
             <ShellContent Title="Sobre" Route="sobre" ContentTemplate="{DataTemplate local:AboutView}"/>
 
             <ShellContent Title="Descrição" Route="desc" ContentTemplate="{DataTemplate local:DescriptionView}"/>
