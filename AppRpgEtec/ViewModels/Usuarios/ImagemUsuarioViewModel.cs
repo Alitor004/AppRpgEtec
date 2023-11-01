@@ -69,12 +69,12 @@ namespace AppRpgEtec.ViewModels.Usuarios
                 string fileName = String.Format("{0:ddMMyyyy_HHmmss}", DateTime.Now) + ".jpg";
 
                 var file = await CrossMedia.Current.TakePhotoAsync
-                    (new Plugin.Media.Abstractions.StoreCameraMediaOptions
-                    {
-                        Directory = "Fotos",
-                        PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small,
-                        Name = fileName
-                    });
+                (new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                {
+                    Directory = "Fotos",
+                    PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small,
+                    Name = fileName
+                });
 
                 if (file == null) 
                     await Task.FromResult(false);
@@ -85,6 +85,8 @@ namespace AppRpgEtec.ViewModels.Usuarios
                     var stream = file.GetStream();
                     stream.CopyTo(ms);
                 }
+                FonteImagem = ImageSource.FromStream(() => file.GetStream());
+                Foto = ms.ToArray();
             }
             catch (Exception ex)
             {
