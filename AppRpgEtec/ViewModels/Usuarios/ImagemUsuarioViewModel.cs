@@ -22,6 +22,8 @@ namespace AppRpgEtec.ViewModels.Usuarios
             AbrirGaleriaCommand = new Command(AbrirGaleria);
             SalvarImagemCommand = new Command(SalvarImagem);
             FotografarCommand = new Command(Fotografar);
+
+            CarregarUsuario();
         }
 
         public ICommand AbrirGaleriaCommand { get; }
@@ -148,8 +150,21 @@ namespace AppRpgEtec.ViewModels.Usuarios
                     .DisplayAlert("Ops", ex.Message + "Detalhes: " + ex.InnerException, "Ok");
             }
         }
+        public async void CarregarUsuario()
+        {
+            try
+            {
+                int usuarioId = Preferences.Get("UsuarioId", 0);
+                Usuario u = await uService.GetUsuarioAsync(usuarioId);
 
-
+                Foto = u.Foto;
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage
+                    .DisplayAlert("Ops", ex.Message + "Detalhes: " + ex.InnerException, "Ok");
+            }
+        }
 
     }
 }
