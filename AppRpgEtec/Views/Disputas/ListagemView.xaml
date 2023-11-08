@@ -4,9 +4,40 @@
              x:Class="AppRpgEtec.Views.Disputas.ListagemView"
              Title="ListagemView">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <SearchBar x:Name="searchBar" HeightRequest="25" Placeholder="Digite o nome do Personagem..." 
+                   TextColor="Black" SearchCommand="{Binding PesquisarPersonagens}" 
+                   SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"/>
+        <ListView x:Name="lvPersonagens" HasUnevenRows="True" ItemsSource="{Binding
+                  PersonagensEncontrados}" 
+                  SelectedItem="{Binding PersonagemSelecionado}"
+                  Margin="10, 5, 0, 0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding Id}" TextColor="Blue" IsVisible="False"/>
+                            <Label Text="{Binding Nome}" TextColor="Blue" FontSize="18"/>
+                            <Label Text="{Binding Classe}" TextColor="Blue" FontSize="14"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid HorizontalOptions="Fill" Margin="5, 5, 0, 0" Padding="10, 10, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Atacante: " Grid.Column="0" Grid.Row="0" FontAttributes="Bold" />
+            <Label Text="{Binding DescricaoPersonagemAtacante}" Grid.Column="1" Grid.Row="0" TextColor="Blue" />
+
+            <Label Text="Oponente: " Grid.Column="0" Grid.Row="1" FontAttributes="Bold" />
+            <Label Text="{Binding DescricaoPersonagemOponente}" Grid.Column="1" Grid.Row="1" TextColor="Blue" />
+        </Grid>
+
     </VerticalStackLayout>
 </ContentPage>
