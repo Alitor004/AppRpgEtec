@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>AppRpgEtec</ApplicationTitle>
+		<ApplicationTitle>Rpg Etec</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.apprpgetec</ApplicationId>
