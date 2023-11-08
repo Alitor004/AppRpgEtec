@@ -8,7 +8,7 @@
     xmlns:viewsPersonagens="clr-namespace:AppRpgEtec.Views.Personagens"
     xmlns:viewsDisputas="clr-namespace:AppRpgEtec.Views.Disputas"
     
-    xmlns: conv="clr-namespace:AppRpgEtec.Converters"
+    xmlns:conv="clr-namespace:AppRpgEtec.Converters"
     xmlns:local="clr-namespace:AppRpgEtec">
 
     <Shell.Resources>

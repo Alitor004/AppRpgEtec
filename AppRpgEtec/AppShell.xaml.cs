@@ -6,6 +6,7 @@ namespace AppRpgEtec
 	public partial class AppShell : Shell
 	{
 		AppShellViewModel viewModel;
+
 		public AppShell()
 		{
             InitializeComponent();
@@ -16,7 +17,7 @@ namespace AppRpgEtec
 			Routing.RegisterRoute("cadPersonagemView", typeof(CadastroPersonagemView));
 
 			string login = Preferences.Get("UsuarioUsername", string.Empty);
-			lblLogin.Text = $"login: {login}";
+            lblLogin.Text = $"login: {login}";
 		}
 	}
 }
